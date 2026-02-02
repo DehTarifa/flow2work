@@ -10,36 +10,32 @@ const plans = [
         price: 'R$ 299',
         period: '/mês',
         description: 'Ideal para pequenas empresas',
-        features: ['Até 5 usuários', '1 canal', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
+        features: ['CRM Integrado', 'Até 5 usuários', '1 canal', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: false,
-        icon: '🚀',
     },
     {
-        name: 'Pro Max',
+        name: 'Pro',
         price: 'R$ 799',
         period: '/mês',
         description: 'O plano mais popular',
-        features: ['Até 20 usuários', '3 canais', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
+        features: ['CRM Integrado', 'Até 20 usuários', '3 canais', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: true,
-        icon: '⭐',
     },
     {
-        name: 'Smart',
+        name: 'Premium',
         price: 'R$ 1.499',
         period: '/mês',
         description: 'Para empresas em expansão',
-        features: ['Até 30 usuários', '5 canais', 'Todos os recursos anteriores'],
+        features: ['CRM Integrado', 'Até 30 usuários', '5 canais','WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: false,
-        icon: '💎',
     },
     {
         name: 'Enterprise',
-        price: 'Sob Consulta',
+        price: 'Sob Medida',
         period: '',
         description: 'Soluções personalizadas',
-        features: ['Usuários sob medida', '10 canais', 'Consultoria estratégica', 'Planejamento de vendas', 'Acompanhamento mensal'],
+        features: ['CRM Integrado', 'Usuários sob medida', '10 canais', 'Consultoria estratégica', 'Planejamento de vendas', 'Acompanhamento mensal'],
         highlight: false,
-        icon: '🏢',
     },
 ];
 
@@ -209,20 +205,29 @@ export function Pricing() {
                                     className="mt-auto"
                                 >
                                     <Button
-                                        variant={plan.highlight ? 'primary' : 'outline'}
-                                        className={clsx(
-                                            'w-full justify-center gap-2 group',
-                                            plan.highlight && 'shadow-lg shadow-primary/50'
-                                        )}
+                                    asChild
+                                    variant={plan.highlight ? 'primary' : 'outline'}
+                                    className={clsx(
+                                        'w-full group',
+                                        plan.highlight && 'shadow-lg shadow-primary/50'
+                                    )}
                                     >
-                                        {plan.highlight ? 'Assinar Agora' : 'Começar Agora'}
+                                    <a
+                                        href="https://api.whatsapp.com/send?phone=551155200485"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2"
+                                    >
+                                        Começar Agora
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </a>
                                     </Button>
+
                                 </motion.div>
 
                                 {/* Additional info */}
                                 <p className="text-xs text-gray-500 text-center mt-4">
-                                    Teste grátis por 7 dias. Sem cartão de crédito.
+                                    Agende sua consulta com <br></br> um especialista
                                 </p>
                             </div>
                         </motion.div>
@@ -245,7 +250,7 @@ export function Pricing() {
                         whileTap={{ scale: 0.95 }}
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/10 text-primary font-semibold border border-primary/30 hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 group"
                     >
-                        Fale com nosso time de vendas
+                        <a href='https://api.whatsapp.com/send?phone=551155200485'>Fale com nosso time de vendas</a>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
                 </motion.div>

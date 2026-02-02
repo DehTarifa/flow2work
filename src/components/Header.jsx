@@ -98,7 +98,7 @@ export function Header() {
                             className="gap-2"
                             onClick={() => handleNavClick('#pricing')}
                         >
-                            Começar Grátis
+                            Começar Agora
                         </Button>
                     </motion.div>
 
@@ -193,20 +193,10 @@ export function Header() {
                                     className="w-full justify-center"
                                     onClick={() => handleNavClick('#pricing')}
                                 >
-                                    Começar Grátis
+                                    <a href="https://api.whatsapp.com/send?phone=551155200485">Comece agora</a>
                                 </Button>
                             </motion.div>
 
-                            {/* Mobile Menu Footer Info */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.4 }}
-                                className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-gray-500"
-                            >
-                                <p>Teste grátis por 7 dias</p>
-                                <p className="mt-2">Sem cartão de crédito necessário</p>
-                            </motion.div>
                         </Container>
                     </motion.div>
                 )}

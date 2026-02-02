@@ -19,9 +19,7 @@ const navigation = {
         //{ name: 'Acessibilidade', href: '#' },
     ],
     social: [
-        { name: 'LinkedIn', href: '#', icon: Linkedin },
-        { name: 'Instagram', href: '#', icon: Instagram },
-        { name: 'Facebook', href: '#', icon: Facebook },
+        { name: 'Instagram', href: 'https://www.instagram.com/flow2work/', icon: Instagram },
     ],
 };
 
@@ -102,16 +100,16 @@ export function Footer() {
                             />  
                         </div>
                         <p className="text-sm text-gray-400 leading-relaxed mb-6">
-                            Transformando a comunicação empresarial com inteligência e eficiência.
+                            Centralize CRM e atendimento por chatbot em uma única plataforma.
                         </p>
                         
                         {/* Contact Info */}
                         <div className="space-y-3 mb-6">
-                            <a href="mailto:support@flow2work.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group">
-                                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                                sac@flow2work.com
+                            <a href="https://api.whatsapp.com/send?phone=551155200485" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group">
+                                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                +55 11 5520-0485
                             </a>
-                            <p className="text-xs text-gray-500">Resposta em até 72 horas</p>
+                            <p className="text-xs text-gray-500"></p>
                         </div>
 
                         {/* Social Links */}
@@ -258,7 +256,7 @@ export function Footer() {
                             </a>
                             <span>•</span>
                             <a href="#" className="hover:text-gray-300 transition-colors">
-                                Contato: support@flow2work.com
+                                processos@consultorialevelup.com.br
                             </a>
                         </div>
                     </div>

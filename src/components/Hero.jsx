@@ -1,7 +1,7 @@
 import { Container } from './ui/Container';
 import { Button } from './ui/Button';
 import { motion } from 'framer-motion';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { ArrowRight, PlayCircle} from 'lucide-react';
 
 export function Hero() {
     return (
@@ -49,7 +49,7 @@ export function Hero() {
                             className="inline-flex self-start"
                         >
                             <div className="rounded-full px-5 py-2 text-sm font-medium leading-6 bg-primary/10 text-primary ring-1 ring-primary/20 backdrop-blur-sm">
-                                Gerencie seus atendimentos em um só lugar
+                                Gerencie suas negociações em um só lugar
                             </div>
                         </motion.div>
 
@@ -60,10 +60,10 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="space-y-4"
                         >
-                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                                Organize todos os atendimentos do WhatsApp {' '}
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                                Centralize WhatsApp, organize clientes e {' '}
                                 <span className="text-primary block mt-2">
-                                    em um único lugar
+                                    acompanhe cada venda em tempo real
                                 </span>
                             </h1>
                         </motion.div>
@@ -75,7 +75,7 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.4 }}
                             className="text-lg lg:text-xl text-gray-300 max-w-2xl"
                         >
-                            Uma plataforma de gestão de conversas que centraliza atendimento, distribui mensagens entre equipes e dá visibilidade em tempo real do que está acontecendo no WhatsApp da sua empresa.
+                            Uma plataforma única que integra CRM e atendimento por chatbot de forma 100% nativa, centralizando seus leads, conversas e vendas em um só lugar.
                         </motion.p>
 
                         {/* Feature Pills */}
@@ -107,13 +107,19 @@ export function Hero() {
                                 variant="primary" 
                                 className="gap-2 text-base px-8 py-6 group"
                             >
-                                Entre em contato agora mesmo
+                                <a href="https://api.whatsapp.com/send?phone=551155200485">Entre em contato agora mesmo</a>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             
                             <Button 
                                 variant="outline" 
                                 className="gap-2 group border-white/10 hover:border-primary/50"
+                                onClick={() => {
+                                    document.getElementById('pricing')?.scrollIntoView({ 
+                                        behavior: 'smooth',
+                                        block: 'start' 
+                                    });
+                                }}
                             >
                                 Confira nossos planos
                                 <ArrowRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -121,7 +127,7 @@ export function Hero() {
                         </motion.div>
 
                         {/* Trust Indicator */}
-                        <motion.div
+                        {/* <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
@@ -133,10 +139,10 @@ export function Hero() {
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-slate-400 ring-2 ring-[#0A0A0A]" />
 
                             </div>
-                            <span>
+                             /* <span>
                                 <strong className="text-white font-semibold tracking-wide">+30 empresas</strong> já economizam horas do seu dia a dia.
-                            </span>
-                        </motion.div>
+                            </span> 
+                        </motion.div> */}
                     </motion.div>
 
                 </div>

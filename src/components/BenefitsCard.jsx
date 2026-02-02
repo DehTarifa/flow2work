@@ -1,12 +1,12 @@
 import { Container } from './ui/Container';
 import { motion } from 'framer-motion';
-import { ArrowRight, Lock, Shield, KeyRound } from 'lucide-react';
+import { ArrowRight, Lock, Shield, KeyRound, BookSearch, ChartCandlestick } from 'lucide-react';
 
 export function BenefitsCard() {
     const benefits = [
         {
             id: 1,
-            icon: Lock,
+            icon: BookSearch,
             title: 'Organização total das conversas',
             description: 'Chega de mensagens perdidas, atendimentos duplicados ou informações espalhadas. Centralize todas as conversas do WhatsApp em um único painel e tenha histórico completo de cada atendimento, do início ao fim.',
             color: 'from-primary/20 to-primary/5',
@@ -20,7 +20,7 @@ export function BenefitsCard() {
         },
         {
             id: 3,
-            icon: KeyRound,
+            icon: ChartCandlestick,
             title: 'Visibilidade e controle da equipe',
             description: 'Acompanhe em tempo real o volume de conversas, filas de atendimento e a atuação de cada colaborador. Tenha dados claros para tomar decisões, corrigir gargalos e elevar o padrão de qualidade do atendimento.',
             color: 'from-purple-500/20 to-purple-500/5',

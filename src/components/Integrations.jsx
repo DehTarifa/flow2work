@@ -79,7 +79,7 @@ export function Integrations() {
                     
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
                         Integre com suas{' '}
-                        <span className="text-primary">ferramentas favoritas</span>
+                        <span className="text-primary">ferramentas do dia a dia</span>
                     </h2>
                     
                     <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
