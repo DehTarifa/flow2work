@@ -7,24 +7,24 @@ import clsx from 'clsx';
 const plans = [
     {
         name: 'Basic',
-        price: 'R$ 299',
-        period: '/mês',
+        price: 'Sob Medida',
+        period: '',
         description: 'Ideal para pequenas empresas',
         features: ['CRM Integrado', 'Até 5 usuários', '1 canal', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: false,
     },
     {
         name: 'Pro',
-        price: 'R$ 799',
-        period: '/mês',
+        price: 'Sob Medida',
+        period: '',
         description: 'O plano mais popular',
         features: ['CRM Integrado', 'Até 20 usuários', '3 canais', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: true,
     },
     {
         name: 'Premium',
-        price: 'R$ 1.499',
-        period: '/mês',
+        price: 'Sob Medida',
+        period: '',
         description: 'Para empresas em expansão',
         features: ['CRM Integrado', 'Até 30 usuários', '5 canais','WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
         highlight: false,
@@ -157,7 +157,7 @@ export function Pricing() {
                                 {/* Pricing */}
                                 <div className="mb-8">
                                     <div className="flex items-baseline gap-2">
-                                        <span className="text-4xl lg:text-4xl font-bold text-white">
+                                        <span className="text-4xl lg:text-3xl font-bold text-white">
                                             {plan.price}
                                         </span>
                                         {plan.period && (

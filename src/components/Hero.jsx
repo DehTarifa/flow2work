@@ -107,7 +107,7 @@ export function Hero() {
                                 variant="primary" 
                                 className="gap-2 text-base px-8 py-6 group"
                             >
-                                <a href="https://api.whatsapp.com/send?phone=551155200485">Entre em contato agora mesmo</a>
+                                <a href="https://api.whatsapp.com/send?phone=551155200485" target='_blank'>Entre em contato agora mesmo</a>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             
