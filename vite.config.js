@@ -11,6 +11,7 @@ export default defineConfig({
   // },
   preview: {
     host: '0.0.0.0',
-    port: 4002
+    port: 4002,
+    allowedHosts: ["www.flow2work.com.br"],
   }
 })
