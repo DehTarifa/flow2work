@@ -45,7 +45,7 @@ export function Integrations() {
     };
 
     return (
-        <div className="relative isolate overflow-hidden bg-white py-24 lg:py-32 pt-0 lg:pt-0 " id='integrations'>
+        <div className="relative isolate overflow-hidden bg-white py-24 lg:py-32 " id='integrations'>
             {/* Background Pattern - subtle */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[length:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]" />
             

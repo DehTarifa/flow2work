@@ -48,7 +48,7 @@ export function BenefitsCard() {
     };
 
     return (
-        <div className="relative isolate overflow-hidden bg-[#0A0A0A] py-24 lg:py-32 pt-10 lg:pt-32" id='benefits'>
+        <div className="relative isolate overflow-hidden bg-[#0A0A0A] pb-24 pt-32" id='benefits'>
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]" />
             

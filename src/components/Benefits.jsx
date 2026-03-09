@@ -28,7 +28,7 @@ const benefits = [
 
 export function Benefits() {
     return (
-        <div className="relative isolate overflow-hidden bg-white py-24 lg:py-32" id='features'>
+        <div className="relative isolate overflow-hidden bg-white pt-32 pb-0" id='features'>
             {/* Background Pattern - subtle */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[length:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]" />
             

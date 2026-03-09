@@ -1,6 +1,7 @@
 import { Container } from './ui/Container';
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Instagram, Linkedin, Phone, ArrowRight } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const navigation = {
     product: [
@@ -8,22 +9,23 @@ const navigation = {
         { name: 'Integrações', href: '#integrations' },
         { name: 'Planos', href: '#pricing' },
     ],
-    company: [
-        { name: 'Sobre', href: '#' },
-        { name: 'Contato', href: '#' },
-    ],
-    legal: [
-        //{ name: 'Privacidade', href: '#' },
-        //{ name: 'Termos', href: '#' },
-        //{ name: 'Cookie Policy', href: '#' },
-        //{ name: 'Acessibilidade', href: '#' },
-    ],
+    legal: [],
     social: [
+        { name: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=551155200485', icon: FaWhatsapp },
         { name: 'Instagram', href: 'https://www.instagram.com/flow2work/', icon: Instagram },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/levelupconsultoria/', icon: Linkedin },
     ],
 };
 
 export function Footer() {
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <footer className="relative isolate overflow-hidden bg-gradient-to-b from-[#0A0A0A] to-black" id='contact'>
             {/* Background Pattern */}
@@ -44,11 +46,11 @@ export function Footer() {
                 }}
             />
 
-            <Container className="relative pt-8 pb-8">
+            <Container className="relative pt-16 pb-12">
 
 
                 {/* Main Footer Content */}
-                <div className="mb-16 grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+                <div className="mb-16 grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
                     {/* Brand Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -70,11 +72,10 @@ export function Footer() {
                         
                         {/* Contact Info */}
                         <div className="space-y-3 mb-6">
-                            <a href="https://api.whatsapp.com/send?phone=551155200485" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group underline">
+                            <a href="tel:+551155200485" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group underline">
                                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 +55 11 5520-0485
                             </a>
-                            <p className="text-xs text-gray-500"></p>
                         </div>
 
                         {/* Social Links */}
@@ -85,6 +86,7 @@ export function Footer() {
                                     <motion.a
                                         key={item.name}
                                         href={item.href}
+                                        target='_blank'
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
                                         className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
@@ -110,6 +112,7 @@ export function Footer() {
                                 <li key={item.name}>
                                     <a
                                         href={item.href}
+                                        onClick={(e) => handleNavClick(e, item.href)}
                                         className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1"
                                     >
                                         {item.name}
@@ -120,87 +123,27 @@ export function Footer() {
                         </ul>
                     </motion.div>
 
-                    {/* Company Links */}
+                    {/* CTA Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <h4 className="text-sm font-semibold text-white mb-6 uppercase tracking-widest">Empresa</h4>
-                        <ul className="space-y-3">
-                            {navigation.company.map((item) => (
-                                <li key={item.name}>
-                                    <a
-                                        href={item.href}
-                                        className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1"
-                                    >
-                                        {item.name}
-                                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+                        <h4 className="text-sm font-semibold text-white mb-6 uppercase tracking-widest">Comece Agora</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                            Pronto para transformar seu atendimento?
+                        </p>
+                        <a
+                            href="#pricing"
+                            onClick={(e) => handleNavClick(e, '#pricing')}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors"
+                        >
+                            Veja os Planos
+                            <ArrowRight className="w-4 h-4" />
+                        </a>
                     </motion.div>
 
-                    {/* Legal Links */}
-                    {/*<motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        viewport={{ once: true }}
-                    >
-                        <h4 className="text-sm font-semibold text-white mb-6 uppercase tracking-widest">Legal</h4>
-                        <ul className="space-y-3">
-                            {navigation.legal.map((item) => (
-                                <li key={item.name}>
-                                    <a
-                                        href={item.href}
-                                        className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1"
-                                    >
-                                        {item.name}
-                                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div> */}
-
-                    {/* Resources / Support */}
-                    {/* <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true }}
-                    >
-                        <h4 className="text-sm font-semibold text-white mb-6 uppercase tracking-widest">Suporte</h4>
-                        <ul className="space-y-3">
-                            <li>
-                                <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1">
-                                    Documentação
-                                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1">
-                                    API Reference
-                                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1">
-                                    Status
-                                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors group flex items-center gap-1">
-                                    Community
-                                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                        </ul>
-                    </motion.div> */}
                 </div>
 
                 {/* Bottom Footer */}
