@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "dotenv -e .env -- sh -c 'vite preview --port $PORT'"
+    "start": "dotenv -e .env -- sh -c 'vite preview --port $PORT --host'"
   },
   "dependencies": {
     "clsx": "^2.1.1",

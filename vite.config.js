@@ -9,4 +9,8 @@ export default defineConfig({
   //   port: 3002,
   //   allowedHosts: ["preview.consultorialevelup.com.br", ""],
   // },
+  preview: {
+    host: '0.0.0.0',
+    port: 4002
+  }
 })
