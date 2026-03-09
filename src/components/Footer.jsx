@@ -44,53 +44,18 @@ export function Footer() {
                 }}
             />
 
-            <Container className="relative pt-20 pb-8">
-                {/* Newsletter Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="mb-20 rounded-2xl border border-white/10 bg-gradient-to-br from-primary/10 to-primary/5 p-8 lg:p-12"
-                >
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div>
-                            <h3 className="text-3xl font-bold text-white mb-3">
-                                Fique por dentro das novidades
-                            </h3>
-                            <p className="text-gray-400">
-                                Receba as últimas atualizações, dicas de atendimento e inovações do Flow2work direto no seu email.
-                            </p>
-                        </div>
-                        <div className="flex gap-2">
-                            <input
-                                type="email"
-                                placeholder="seu@email.com"
-                                className="flex-1 rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
-                            />
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all duration-300 group"
-                            >
-                                <span className="flex items-center gap-2">
-                                    Inscrever
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </span>
-                            </motion.button>
-                        </div>
-                    </div>
-                </motion.div>
+            <Container className="relative pt-8 pb-8">
+
 
                 {/* Main Footer Content */}
-                <div className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+                <div className="mb-16 grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
                     {/* Brand Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="lg:col-span-1"
+                        className="lg:col-span-1 col-span-2"
                     >
                         <div className="flex items-center gap-2 mb-6">
                             <img
@@ -105,7 +70,7 @@ export function Footer() {
                         
                         {/* Contact Info */}
                         <div className="space-y-3 mb-6">
-                            <a href="https://api.whatsapp.com/send?phone=551155200485" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group">
+                            <a href="https://api.whatsapp.com/send?phone=551155200485" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors group underline">
                                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 +55 11 5520-0485
                             </a>
@@ -240,25 +205,16 @@ export function Footer() {
 
                 {/* Bottom Footer */}
                 <div className="border-t border-white/10 pt-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                    <div className="text-center">
                         <motion.p
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-xs text-gray-500"
+                            className="text-xs text-gray-500 tracking-wide"
                         >
-                            © 2026 Flow2work. Todos os direitos reservados. • Todos os sistemas operacionais • Última atualização: há 2 horas
+                            © 2026 Level UP. Todos os direitos reservados.
                         </motion.p>
-                        <div className="flex justify-end gap-4 text-xs text-gray-500">
-                            <a href="#" className="hover:text-gray-300 transition-colors">
-                                Status do Sistema
-                            </a>
-                            <span>•</span>
-                            <a href="#" className="hover:text-gray-300 transition-colors">
-                                processos@consultorialevelup.com.br
-                            </a>
-                        </div>
                     </div>
                 </div>
             </Container>

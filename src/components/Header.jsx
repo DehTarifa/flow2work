@@ -21,17 +21,19 @@ export function Header() {
     const handleNavClick = (href) => {
         setActiveLink(href);
         setMobileMenuOpen(false);
-        // Scroll suave para a seção
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Delay para permitir que a animação de fechamento não interfira no scroll
+        setTimeout(() => {
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
     };
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-white/5">
             <Container className="py-0">
-                <nav className="flex items-center justify-between h-20" aria-label="Global">
+                <nav className="flex items-center h-20 justify-between lg:justify-start" aria-label="Global">
                     {/* Logo */}
                     <motion.a
                         href="#home"
@@ -43,7 +45,7 @@ export function Header() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <span className="text-xl font-bold text-white tracking-tight hidden sm:inline">
+                        <span className="text-xl font-bold text-white tracking-tight ">
                             <img
                                 src="/Brand.svg" 
                                 alt="Dashboard do Flow2work"
@@ -87,7 +89,7 @@ export function Header() {
                     </div>
 
                     {/* Desktop CTA Button */}
-                    <motion.div
+                    {/* <motion.div
                         className="hidden lg:flex lg:flex-1 lg:justify-end"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -98,9 +100,9 @@ export function Header() {
                             className="gap-2"
                             onClick={() => handleNavClick('#pricing')}
                         >
-                            Começar Agora
+                            Contrate agora
                         </Button>
-                    </motion.div>
+                    </motion.div> */}
 
                     {/* Mobile Menu Button */}
                     <motion.button
@@ -181,21 +183,6 @@ export function Header() {
                                     </motion.a>
                                 ))}
                             </div>
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.35 }}
-                                className="pt-6 border-t border-white/10"
-                            >
-                                <Button 
-                                    variant="primary" 
-                                    className="w-full justify-center"
-                                    onClick={() => handleNavClick('#pricing')}
-                                >
-                                    <a href="https://api.whatsapp.com/send?phone=551155200485">Comece agora</a>
-                                </Button>
-                            </motion.div>
 
                         </Container>
                     </motion.div>

@@ -10,7 +10,7 @@ const plans = [
         price: 'Sob Medida',
         period: '',
         description: 'Ideal para pequenas empresas',
-        features: ['CRM Integrado', 'Até 5 usuários', '1 canal', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
+        features: ['CRM Integrado', 'Até 5 usuários', '1 número de WhatsApp', 'Agendamento de mensagens', 'Fluxo de atendimento'],
         highlight: false,
     },
     {
@@ -18,7 +18,7 @@ const plans = [
         price: 'Sob Medida',
         period: '',
         description: 'O plano mais popular',
-        features: ['CRM Integrado', 'Até 20 usuários', '3 canais', 'WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
+        features: ['CRM Integrado', 'Até 20 usuários', '3 números de WhatsApp', 'Agendamento de mensagens', 'Fluxo de atendimento'],
         highlight: true,
     },
     {
@@ -26,7 +26,7 @@ const plans = [
         price: 'Sob Medida',
         period: '',
         description: 'Para empresas em expansão',
-        features: ['CRM Integrado', 'Até 30 usuários', '5 canais','WhatsApp Oficial', 'Mensagens automáticas', 'Fluxo de automação'],
+        features: ['CRM Integrado', 'Até 30 usuários', '5 números de WhatsApp', 'Agendamento de mensagens', 'Fluxo de atendimento'],
         highlight: false,
     },
     {
@@ -34,7 +34,7 @@ const plans = [
         price: 'Sob Medida',
         period: '',
         description: 'Soluções personalizadas',
-        features: ['CRM Integrado', 'Usuários sob medida', '10 canais', 'Consultoria estratégica', 'Planejamento de vendas', 'Acompanhamento mensal'],
+        features: ['CRM Integrado', 'Usuários sob medida', '10 números de WhatsApp', 'Consultoria estratégica', 'Planejamento de vendas', 'Acompanhamento mensal'],
         highlight: false,
     },
 ];
@@ -61,7 +61,7 @@ export function Pricing() {
     };
 
     return (
-        <div className="relative isolate overflow-hidden bg-[#0A0A0A] py-24 lg:py-32" id='pricing'>
+        <div className="relative isolate overflow-hidden bg-[#0A0A0A] py-24 " id='pricing'>
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]" />
             
@@ -109,7 +109,7 @@ export function Pricing() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-1 lg:gap-1 items-stretch"
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-1 items-stretch px-4 md:px-0"
                 >
                     {plans.map((plan, index) => (
                         <motion.div
@@ -118,7 +118,7 @@ export function Pricing() {
                             className={clsx(
                                 'group relative flex flex-col rounded-2xl border backdrop-blur-sm transition-all duration-300',
                                 plan.highlight
-                                    ? 'lg:row-span-2 xl:row-auto bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-primary/50 shadow-2xl shadow-primary/20 hover:shadow-primary/30 hover:border-primary lg:scale-100'
+                                    ? 'bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-primary/50 shadow-2xl shadow-primary/20 hover:shadow-primary/30 hover:border-primary lg:scale-100'
                                     : 'bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/10'
                             )}
                         >
@@ -128,7 +128,7 @@ export function Pricing() {
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20"
+                                    className="absolute -top-4 transform right-10 z-20"
                                 >
                                     <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
                                         Mais Popular
@@ -155,9 +155,9 @@ export function Pricing() {
                                 </div>
 
                                 {/* Pricing */}
-                                <div className="mb-8">
+                                {/* <div className="mb-8">
                                     <div className="flex items-baseline gap-2">
-                                        <span className="text-4xl lg:text-3xl font-bold text-white">
+                                        <span className="text-2xl font-bold text-white">
                                             {plan.price}
                                         </span>
                                         {plan.period && (
@@ -166,7 +166,7 @@ export function Pricing() {
                                             </span>
                                         )}
                                     </div>
-                                </div>
+                                </div> */}
 
                                 {/* Features List */}
                                 <ul role="list" className="mb-8 space-y-4 flex-1">
@@ -204,30 +204,29 @@ export function Pricing() {
                                     whileTap={{ scale: 0.98 }}
                                     className="mt-auto"
                                 >
-                                    <Button
-                                    asChild
-                                    variant={plan.highlight ? 'primary' : 'outline'}
-                                    className={clsx(
-                                        'w-full group',
-                                        plan.highlight && 'shadow-lg shadow-primary/50'
-                                    )}
-                                    >
                                     <a
-                                        href="https://api.whatsapp.com/send?phone=551155200485"
+                                        href={`https://api.whatsapp.com/send?phone=551155200485&text=Olá, gostaria de saber mais sobre o plano ${plan.name}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-2"
                                     >
-                                        Começar Agora
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        <Button
+                                        asChild
+                                        variant={plan.highlight ? 'primary' : 'outline'}
+                                        className={clsx(
+                                            'w-full group flex items-center justify-center gap-2',
+                                            plan.highlight && 'shadow-lg shadow-primary/50'
+                                        )}
+                                        >
+                                            <span>Começar Agora</span>
+                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </Button>
                                     </a>
-                                    </Button>
 
                                 </motion.div>
 
                                 {/* Additional info */}
                                 <p className="text-xs text-gray-500 text-center mt-4">
-                                    Agende sua consulta com <br></br> um especialista
+                                    Fale com nosso time de vendas
                                 </p>
                             </div>
                         </motion.div>
@@ -245,14 +244,16 @@ export function Pricing() {
                     <p className="text-gray-400 mb-8">
                         Dúvidas sobre qual plano escolher?
                     </p>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/10 text-primary font-semibold border border-primary/30 hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 group"
-                    >
-                        <a href='https://api.whatsapp.com/send?phone=551155200485'>Fale com nosso time de vendas</a>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                        <a href='https://api.whatsapp.com/send?phone=551155200485' target='_blank' rel='noopener noreferrer'>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/10 text-primary font-semibold border border-primary/30 hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 group"
+                        >
+                            <span>Fale com nosso time de vendas</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </motion.button>
+                    </a>
                 </motion.div>
             </Container>
         </div>

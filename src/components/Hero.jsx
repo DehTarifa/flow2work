@@ -31,7 +31,7 @@ export function Hero() {
                 }}
             />
 
-            <Container className="relative py-20 lg:py-28">
+            <Container className="relative py-24 lg:py-28">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[calc(100vh-8rem)]">
                     
                     {/* Left Column - Content */}
@@ -106,8 +106,11 @@ export function Hero() {
                             <Button 
                                 variant="primary" 
                                 className="gap-2 text-base px-8 py-6 group"
+                                onClick={() => {
+                                    window.open('https://api.whatsapp.com/send?phone=551155200485', '_blank');
+                                }}
                             >
-                                <a href="https://api.whatsapp.com/send?phone=551155200485" target='_blank'>Entre em contato agora mesmo</a>
+                                <span>Entre em contato agora mesmo</span>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             
@@ -125,24 +128,6 @@ export function Hero() {
                                 <ArrowRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
                             </Button>
                         </motion.div>
-
-                        {/* Trust Indicator */}
-                        {/* <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                            className="flex items-center gap-2 text-sm text-gray-500 pt-4"
-                        >
-                            <div className="flex -space-x-2">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-slate-200 ring-2 ring-[#0A0A0A]" />
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-slate-300 ring-2 ring-[#0A0A0A]" />
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-slate-400 ring-2 ring-[#0A0A0A]" />
-
-                            </div>
-                             /* <span>
-                                <strong className="text-white font-semibold tracking-wide">+30 empresas</strong> já economizam horas do seu dia a dia.
-                            </span> 
-                        </motion.div> */}
                     </motion.div>
 
                 </div>
