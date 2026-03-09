@@ -85,7 +85,7 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.5 }}
                             className="flex flex-wrap gap-3"
                         >
-                            {['Histórico completo,', 'Dashboard em tempo real', 'Gestão de equipes'].map((feature, index) => (
+                            {['Histórico completo', 'Dashboard em tempo real', 'Gestão de equipes'].map((feature, index) => (
                                 <div
                                     key={index}
                                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300"
