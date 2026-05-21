@@ -10,6 +10,7 @@ import { InterfacePreview } from './components/InterfacePreview';
 import { Integrations } from './components/Integrations';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Pricing />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
