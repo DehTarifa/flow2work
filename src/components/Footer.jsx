@@ -13,6 +13,7 @@ const navigation = {
     ],
     legal: [
         { name: 'Política de Privacidade', href: '/politica-de-privacidade' },
+        { name: 'Termos de Serviço', href: '/termos-de-servico' },
     ],
     social: [
         { name: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=551155200485', icon: FaWhatsapp },
@@ -151,18 +152,19 @@ export function Footer() {
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs text-gray-500 tracking-wide"
+                        className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-gray-500 tracking-wide"
                     >
                         <span>© 2026 Level UP. Todos os direitos reservados.</span>
-                        <span className="hidden sm:inline" aria-hidden="true">·</span>
                         {navigation.legal.map((item) => (
-                            <Link
-                                key={item.name}
-                                to={item.href}
-                                className="hover:text-primary transition-colors"
-                            >
-                                {item.name}
-                            </Link>
+                            <span key={item.name} className="flex items-center gap-3">
+                                <span className="hidden sm:inline" aria-hidden="true">·</span>
+                                <Link
+                                    to={item.href}
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    {item.name}
+                                </Link>
+                            </span>
                         ))}
                     </motion.div>
                 </div>

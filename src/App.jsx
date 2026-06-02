@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { HomePage } from './pages/HomePage';
 import { PoliticaDePrivacidade } from './pages/PoliticaDePrivacidade';
+import { TermosDeServico } from './pages/TermosDeServico';
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
+          <Route path="/termos-de-servico" element={<TermosDeServico />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
