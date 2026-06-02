@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Container } from './ui/Container';
 import { Button } from './ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
+import { useScrollToHash } from '../hooks/useScrollToHash';
 
 const navigation = [
     { name: 'Home', href: '#home' },
@@ -17,17 +19,12 @@ const navigation = [
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState('#home');
+    const scrollToHash = useScrollToHash();
 
-    const handleNavClick = (href) => {
+    const handleNavClick = (e, href) => {
         setActiveLink(href);
         setMobileMenuOpen(false);
-        // Delay para permitir que a animação de fechamento não interfira no scroll
-        setTimeout(() => {
-            const element = document.querySelector(href);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
+        setTimeout(() => scrollToHash(e, href), 100);
     };
 
     return (
@@ -35,24 +32,28 @@ export function Header() {
             <Container className="py-0">
                 <nav className="flex items-center h-20 justify-between lg:justify-start" aria-label="Global">
                     {/* Logo */}
-                    <motion.a
-                        href="#home"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleNavClick('#home');
-                        }}
-                        className="flex items-center gap-2 group cursor-pointer mr-10"
+                    <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        className="mr-10"
                     >
-                        <span className="text-xl font-bold text-white tracking-tight ">
-                            <img
-                                src="/Brand.svg" 
-                                alt="Dashboard do Flow2work"
-                                className="w-40 h-full object-cover"
-                            />  
-                        </span>
-                    </motion.a>
+                        <Link
+                            to="/"
+                            onClick={() => {
+                                setActiveLink('#home');
+                                setMobileMenuOpen(false);
+                            }}
+                            className="flex items-center gap-2 group cursor-pointer"
+                        >
+                            <span className="text-xl font-bold text-white tracking-tight ">
+                                <img
+                                    src="/Brand.svg"
+                                    alt="Dashboard do Flow2work"
+                                    className="w-40 h-full object-cover"
+                                />
+                            </span>
+                        </Link>
+                    </motion.div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-1">
@@ -60,10 +61,7 @@ export function Header() {
                             <motion.a
                                 key={item.name}
                                 href={item.href}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleNavClick(item.href);
-                                }}
+                                onClick={(e) => handleNavClick(e, item.href)}
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.05 }}
@@ -158,10 +156,7 @@ export function Header() {
                                     <motion.a
                                         key={item.name}
                                         href={item.href}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleNavClick(item.href);
-                                        }}
+                                        onClick={(e) => handleNavClick(e, item.href)}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: index * 0.05 }}

@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Container } from './ui/Container';
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin, Phone, ArrowRight } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useScrollToHash } from '../hooks/useScrollToHash';
 
 const navigation = {
     product: [
@@ -9,7 +11,9 @@ const navigation = {
         { name: 'Integrações', href: '#integrations' },
         { name: 'Planos', href: '#pricing' },
     ],
-    legal: [],
+    legal: [
+        { name: 'Política de Privacidade', href: '/politica-de-privacidade' },
+    ],
     social: [
         { name: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=551155200485', icon: FaWhatsapp },
         { name: 'Instagram', href: 'https://www.instagram.com/flow2work/', icon: Instagram },
@@ -18,13 +22,7 @@ const navigation = {
 };
 
 export function Footer() {
-    const handleNavClick = (e, href) => {
-        e.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const handleNavClick = useScrollToHash();
 
     return (
         <footer className="relative isolate overflow-hidden bg-gradient-to-b from-[#0A0A0A] to-black" id='contact'>
@@ -148,17 +146,25 @@ export function Footer() {
 
                 {/* Bottom Footer */}
                 <div className="border-t border-white/10 pt-8">
-                    <div className="text-center">
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="text-xs text-gray-500 tracking-wide"
-                        >
-                            © 2026 Level UP. Todos os direitos reservados.
-                        </motion.p>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs text-gray-500 tracking-wide"
+                    >
+                        <span>© 2026 Level UP. Todos os direitos reservados.</span>
+                        <span className="hidden sm:inline" aria-hidden="true">·</span>
+                        {navigation.legal.map((item) => (
+                            <Link
+                                key={item.name}
+                                to={item.href}
+                                className="hover:text-primary transition-colors"
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                    </motion.div>
                 </div>
             </Container>
         </footer>
